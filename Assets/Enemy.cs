@@ -9,8 +9,9 @@ public class Enemy : MonoBehaviour
     public float speed;
     public float atkCooltime = 4;
     public float atkDelay;
-    public Transform boxpos;
     public Vector2 boxSize;
+    [SerializeField] private Transform boxpos;
+
     // Start is called before the first frame update
     void Start()
     {
