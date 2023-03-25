@@ -31,7 +31,7 @@ public class Enemy : MonoBehaviour
         if (target < baseobj)
             animator.SetFloat("Direction", -1);
         else
-            animator.SetFloat("Direction", -1);
+            animator.SetFloat("Direction", 1);
     }
     public void Attack()
     {
@@ -62,4 +62,6 @@ public class Enemy : MonoBehaviour
             }
         }
     }
+
+
 }
