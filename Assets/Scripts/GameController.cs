@@ -16,6 +16,9 @@ public class GameController : MonoBehaviour
     [SerializeField] private string[] arrayStudents;
     [SerializeField] private GameObject studentPrefab;
 
+    [SerializeField] private string[] arrayUnemployeds;
+    [SerializeField] private GameObject unemployedPrefab;
+
     private List<BaseGameEntity> entitys;
 
     public static bool IsGameStop { set; get; } = false;
@@ -29,6 +32,15 @@ public class GameController : MonoBehaviour
             GameObject clone = Instantiate(studentPrefab);
             Student entity = clone.GetComponent<Student>();
             entity.Setup(arrayStudents[i]);
+
+            entitys.Add(entity);
+        }
+
+        for (int i = 0; i < arrayUnemployeds.Length; i++)
+        {
+            GameObject clone = Instantiate(unemployedPrefab);
+            Unemployed entity = clone.GetComponent<Unemployed>();
+            entity.Setup(arrayUnemployeds[i]);
 
             entitys.Add(entity);
         }
