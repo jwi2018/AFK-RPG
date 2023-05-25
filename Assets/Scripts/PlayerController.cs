@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown("1"))            ChangeState(PlayerState.Idle);
+        if (Input.GetKeyDown("1")) ChangeStateEnumList(EnumList.PlayerState.Idle);
         else if (Input.GetKeyDown("2"))     ChangeState(PlayerState.Walk);
         else if (Input.GetKeyDown("3"))     ChangeState(PlayerState.Run);
         else if (Input.GetKeyDown("4"))     ChangeState(PlayerState.Attack);
@@ -32,6 +32,11 @@ public class PlayerController : MonoBehaviour
         StopCoroutine(playerState.ToString());
         playerState = newState;
         StartCoroutine(playerState.ToString());
+    }
+
+    private void ChangeStateEnumList(EnumList.PlayerState playerState)
+    {
+
     }
 
     private IEnumerator Idle()
