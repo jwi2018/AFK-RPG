@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace StudentOwnedStates
 {
-    public class RestAndSleep : State
+    public class RestAndSleep : State<Student>
     {
         public override void Enter(Student entity)
         {
@@ -29,7 +29,7 @@ namespace StudentOwnedStates
         }
     }
 
-    public class StudyHard : State
+    public class StudyHard : State<Student>
     {
         public override void Enter(Student entity)
         {
@@ -51,7 +51,7 @@ namespace StudentOwnedStates
                 if (isExit == 1 || entity.Knowledge == 10) entity.ChangeState(StudentStates.TakeAExam);
             }
 
-            if (entity.Stress >= 20) entity.ChangeState(StudentStates.PlayGame);
+            if (entity.Stress >= 20) entity.ChangeState(StudentStates.PlayAGame);
 
             if (entity.Fatigue >= 50) entity.ChangeState(StudentStates.RestAndSleep);
         }
@@ -62,7 +62,7 @@ namespace StudentOwnedStates
         }
     }
 
-    public class TakeAExam : State
+    public class TakeAExam : State<Student>
     {
         public override void Enter(Student entity)
         {
@@ -95,7 +95,7 @@ namespace StudentOwnedStates
 
             if (examScore <= 3) entity.ChangeState(StudentStates.HitTheBottle);
             else if (examScore <= 7) entity.ChangeState(StudentStates.StudyHard);
-            else entity.ChangeState(StudentStates.PlayGame);
+            else entity.ChangeState(StudentStates.PlayAGame);
         }
 
         public override void Exit(Student entity)
@@ -104,7 +104,7 @@ namespace StudentOwnedStates
         }
     }
 
-    public class PlayAGame : State
+    public class PlayAGame : State<Student>
     {
         public override void Enter(Student entity)
         {
@@ -137,7 +137,7 @@ namespace StudentOwnedStates
         }
     }
 
-    public class HitTheBottle : State
+    public class HitTheBottle : State<Student>
     {
         public override void Enter(Student entity)
         {
